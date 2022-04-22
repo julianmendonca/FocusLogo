@@ -5,4 +5,4 @@ export default {
     component: Title,
 };
 
-export const Primary = () => <Title>Title</Title>;
+export const Primary = () => <Title>Title Component</Title>;

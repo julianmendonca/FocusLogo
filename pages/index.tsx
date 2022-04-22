@@ -1,5 +1,6 @@
+import Title from '@/components/Text/Title';
 const Home = () => {
-    return <>FocusLogo App Test Workflow</>;
+    return <Title>FocusLogo</Title>;
 };
 
 export default Home;
