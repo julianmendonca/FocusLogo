@@ -1,5 +1,5 @@
 const Home = () => {
-    return <>FocusLogo</>;
+    return <>FocusLogo App</>;
 };
 
 export default Home;
