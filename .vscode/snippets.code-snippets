@@ -1,0 +1,129 @@
+{
+    "Make Styles": {
+        "prefix": "mkst",
+        "body": [
+            "import { createStyles, makeStyles } from '@mui/styles'",
+            "",
+            "export const use${TM_DIRECTORY/.*[\\\\\\/](.*)$/$1/}Styles = makeStyles(() =>",
+            "   createStyles({",
+            "      ${2}",
+            "   })",
+            ")",
+            "",
+            "export default use${TM_DIRECTORY/.*[\\\\\\/](.*)$/$1/}Styles",
+            ""
+        ],
+        "description": ""
+    },
+    "Build Generic Context": {
+        "prefix": "mkct",
+        "body": [
+            "import { buildGenericContext } from 'src/shared/context/genericContext'",
+            "",
+            "",
+            "const use${1:contextName} = () => {",
+            "  ${2}",
+            "",
+            "    return {}",
+            "}",
+            "",
+            "export const [${1:contextName}Provider, use${1:contextName}Context] = buildGenericContext(use${1:contextName})",
+            ""
+        ],
+        "description": ""
+    },
+    "Functional Component": {
+        "prefix": "rfc",
+        "body": ["export const ${1:componentName} = () => {", "    return (<>${2}</>)", "}", ""]
+    },
+    "Functional Component Using Folder Name": {
+        "prefix": "rffc",
+        "body": ["export const ${TM_DIRECTORY/.*[\\\\\\/](.*)$/$1/} = () => {", "    return (<>${1}</>)", "}", ""]
+    },
+    "Export Default Component": {
+        "prefix": "exdf",
+        "body": ["import ${1:componentName} from './${1:componentName}'", "export default ${1:componentName}"]
+    },
+    "Component Test": {
+        "prefix": "mkt",
+        "body": [
+            "import { render, screen } from '@testing-library/react'",
+            "import '@testing-library/jest-dom'",
+            "",
+            "describe('${1:componentName} Component', () => {",
+            "   it('${2:testName}', () => {",
+            "      ${3}",
+            "   })",
+            "})",
+            ""
+        ],
+        "description": ""
+    },
+    "Mocks for MockerProvider": {
+        "prefix": "mpm",
+        "body": [
+            "const mocks = [",
+            "   {",
+            "    request: {",
+            "        query: ${1}Document,",
+            "        variables: {${2}}",
+            "    },",
+            "    result: {",
+            "        data: {",
+            "                          ${3}",
+            "        }",
+            "    }",
+            "   }",
+            "]"
+        ],
+        "description": "Make mocks array for MockedProvider component"
+    },
+    "Import useStyles": {
+        "prefix": "ust",
+        "body": ["import useStyles from './${TM_DIRECTORY/.*[\\\\\\/](.*)$/$1/}.styles'"],
+        "description": "import styles from a .styles files in the same folder"
+    },
+    "console.log": {
+        "prefix": "cl",
+        "body": ["console.log(${1})"],
+        "description": "Shortcut for console.log('')"
+    },
+    "Make stories": {
+        "prefix": "mks",
+        "body": [
+            "import { ComponentStory, ComponentMeta } from '@storybook/react'",
+            "",
+            "import { ${TM_DIRECTORY/.*[\\\\\\/](.*)$/$1/}  } from './${TM_DIRECTORY/.*[\\\\\\/](.*)$/$1/}'",
+            "",
+            "export default {",
+            "   title: '${1}/${TM_DIRECTORY/.*[\\\\\\/](.*)$/$1/}',",
+            "   component: ${TM_DIRECTORY/.*[\\\\\\/](.*)$/$1/},",
+            "   argTypes: {}",
+            "} as ComponentMeta<typeof ${TM_DIRECTORY/.*[\\\\\\/](.*)$/$1/}>",
+            "",
+            "const Template: ComponentStory<typeof ${TM_DIRECTORY/.*[\\\\\\/](.*)$/$1/}> = (args) => <${TM_DIRECTORY/.*[\\\\\\/](.*)$/$1/} {...args} />",
+            "",
+            "export const Primary = Template.bind({})",
+            "Primary.args = {",
+            "${2}",
+            "}",
+            ""
+        ],
+        "description": "Template for a storybook component"
+    },
+    "Export Default With Container": {
+        "prefix": "exdc",
+        "body": [
+            "import { ${TM_DIRECTORY/.*[\\\\\\/](.*)$/$1/} } from './${TM_DIRECTORY/.*[\\\\\\/](.*)$/$1/}'",
+            "import { ${TM_DIRECTORY/.*[\\\\\\/](.*)$/$1/}Container } from './${TM_DIRECTORY/.*[\\\\\\/](.*)$/$1/}.container'\n",
+
+            "export default Object.assign(${TM_DIRECTORY/.*[\\\\\\/](.*)$/$1/}, {",
+            "\tContainer: ${TM_DIRECTORY/.*[\\\\\\/](.*)$/$1/}Container",
+            "})"
+        ]
+    },
+    "Current File Name": {
+        "prefix": "cf",
+        "body": ["${TM_DIRECTORY/.*[\\\\\\/](.*)$/$1/}"]
+    }
+}

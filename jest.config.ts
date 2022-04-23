@@ -1,4 +1,4 @@
-import type { Config } from '@jest/types';
+import type { Config } from '@jest/types'
 
 // Sync object
 const config: Config.InitialOptions = {
@@ -15,6 +15,6 @@ const config: Config.InitialOptions = {
         'tests/(.*)': '<rootDir>/tests/$1',
         '\\.(css|less|scss|sass)$': 'identity-obj-proxy',
     },
-};
+}
 
-export default config;
+export default config

@@ -4,7 +4,7 @@
     "trailingComma": "es5",
     "useTabs": false,
     "proseWrap": "never",
-    "semi": true,
+    "semi": false,
     "tabWidth": 4,
     "overrides": [
         {

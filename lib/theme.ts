@@ -1,11 +1,11 @@
-import { createTheme, responsiveFontSizes, ThemeOptions } from '@mui/material/styles';
+import { createTheme, responsiveFontSizes, ThemeOptions } from '@mui/material/styles'
 
 declare module '@mui/material/styles/createTypography' {
     interface Typography {
-        fontWeightHeavy: number;
+        fontWeightHeavy: number
     }
     interface TypographyOptions {
-        fontWeightHeavy: number;
+        fontWeightHeavy: number
     }
 }
 
@@ -51,16 +51,16 @@ const THEME: ThemeOptions = {
         },
     },
     palette: {
-        primary: { main: '#016848', dark: '#1f5849', light: '#388e3c' },
-        secondary: { main: '#8bc34a', dark: '#689f38', light: '#d0df63' },
+        primary: { main: '#64b5f6', dark: '#2286c3', light: '#9be7ff' },
+        secondary: { main: '#26c6da', dark: '#0095a8', light: '#6ff9ff' },
         contrastThreshold: 3,
         tonalOffset: 0.5,
     },
     shape: {
         borderRadius: 4,
     },
-};
+}
 
-const theme = responsiveFontSizes(createTheme(THEME));
+const theme = responsiveFontSizes(createTheme(THEME))
 
-export default theme;
+export default theme

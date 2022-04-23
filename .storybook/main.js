@@ -1,4 +1,4 @@
-const path = require('path');
+const path = require('path')
 
 module.exports = {
     stories: ['../**/*.stories.mdx', '../**/*.stories.@(js|jsx|ts|tsx)'],
@@ -29,14 +29,14 @@ module.exports = {
         config.resolve.alias = {
             ...config.resolve?.alias,
             '@': [path.resolve(__dirname, '../'), path.resolve(__dirname, '../')],
-        };
+        }
 
         /**
          * Fixes font import with /
          * @see https://github.com/storybookjs/storybook/issues/12844#issuecomment-867544160
          */
-        config.resolve.roots = [path.resolve(__dirname, '../public'), 'node_modules'];
+        config.resolve.roots = [path.resolve(__dirname, '../public'), 'node_modules']
 
-        return config;
+        return config
     },
-};
+}
