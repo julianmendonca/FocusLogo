@@ -1,6 +1,5 @@
 import MenuButton from '@/components/Button/MenuButton/MenuButton'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
-import EditIcon from '@mui/icons-material/Edit'
 
 export default {
     title: 'Button/MenuButton',
