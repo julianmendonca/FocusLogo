@@ -16,7 +16,7 @@ Primary.args = {
     options: [
         {
             label: 'Editar',
-            icon: <EditIcon />,
+            icon: 'https://zecat-user-images-prod.s3.amazonaws.com/categories/ic_home.svg',
             onClick: () => alert('click'),
         },
     ],
