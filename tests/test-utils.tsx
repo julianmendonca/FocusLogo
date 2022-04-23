@@ -1,13 +1,13 @@
 // https://testing-library.com/docs/react-testing-library/setup/
 
-import React from 'react';
-import { render } from '@testing-library/react';
-import { RouterContext } from 'next/dist/shared/lib/router-context';
-import { NextRouter } from 'next/router';
-import { ThemeProvider, StyledEngineProvider } from '@mui/material';
-import theme from '../lib/theme';
+import React from 'react'
+import { render } from '@testing-library/react'
+import { RouterContext } from 'next/dist/shared/lib/router-context'
+import { NextRouter } from 'next/router'
+import { ThemeProvider, StyledEngineProvider } from '@mui/material'
+import theme from '../lib/theme'
 
-export * from '@testing-library/react';
+export * from '@testing-library/react'
 
 // https://github.com/vercel/next.js/issues/7479#issuecomment-659859682
 // --------------------------------------------------
@@ -19,9 +19,9 @@ export * from '@testing-library/react';
 //   router: { pathname: '/my-custom-pathname' },
 // });
 // --------------------------------------------------
-type DefaultParams = Parameters<typeof render>;
-type RenderUI = DefaultParams[0];
-type RenderOptions = DefaultParams[1] & { router?: Partial<NextRouter> };
+type DefaultParams = Parameters<typeof render>
+type RenderUI = DefaultParams[0]
+type RenderOptions = DefaultParams[1] & { router?: Partial<NextRouter> }
 
 const mockRouter: NextRouter = {
     basePath: '',
@@ -44,7 +44,7 @@ const mockRouter: NextRouter = {
     isFallback: false,
     isLocaleDomain: false,
     isPreview: false,
-};
+}
 
 // Where you add your providers for mock testing wrapper
 export function customRender(ui: RenderUI, { wrapper, router, ...options }: RenderOptions = {}) {
@@ -54,13 +54,13 @@ export function customRender(ui: RenderUI, { wrapper, router, ...options }: Rend
                 <RouterContext.Provider value={{ ...mockRouter, ...router }}>{children}</RouterContext.Provider>
             </ThemeProvider>
         </StyledEngineProvider>
-    );
+    )
 
-    return render(ui, { wrapper, ...options });
+    return render(ui, { wrapper, ...options })
 }
 
 // re-export everything
-export * from '@testing-library/react';
+export * from '@testing-library/react'
 
 // override render method
-export { customRender as render };
+export { customRender as render }

@@ -1,6 +1,10 @@
-import Title from '@/components/Text/Title';
+import Title from '@/components/Text/Title'
 const Home = () => {
-    return <Title>FocusLogo</Title>;
-};
+    return (
+        <>
+            <Title>FocusLogo</Title>
+        </>
+    )
+}
 
-export default Home;
+export default Home
