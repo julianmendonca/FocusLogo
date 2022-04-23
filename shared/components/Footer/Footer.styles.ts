@@ -4,7 +4,7 @@ import { createStyles, makeStyles } from '@mui/styles'
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         container: {
-            backgroundColor: theme.palette.grey[200],
+            backgroundColor: theme.palette.secondary.main,
             padding: 20,
         },
         text: {
