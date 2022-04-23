@@ -1,6 +1,6 @@
 import { Box } from '@mui/system'
 import Image from 'next/image'
-import SearchBar from '../Input/SearchBar/Searchbar'
+import SearchBar from '../Input/SearchBar/SearchBar'
 import useStyles from './NavBar.styles'
 
 const NavBar = () => {
