@@ -1,14 +1,15 @@
 import { Categoria } from '@/shared/Interfaces'
 import NavBar from '@/components/NavBar/NavBar'
-import { useGetCategories } from '@/shared/requests'
 import { environment } from '@/shared/constants'
 
-const Home = () => {
-    const { data: categories } = useGetCategories()
+type HomeProps = {
+    categories: Categoria[]
+}
 
+const Home = ({ categories }: HomeProps) => {
     return (
         <>
-            <NavBar categories={categories?.families || []} />
+            <NavBar categories={categories || []} />
         </>
     )
 }
@@ -21,9 +22,7 @@ export async function getStaticProps() {
 
     return {
         props: {
-            fallback: {
-                '/api/categorias': categories,
-            },
+            categories,
         },
     }
 }
