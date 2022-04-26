@@ -29,6 +29,7 @@ module.exports = {
         config.resolve.alias = {
             ...config.resolve?.alias,
             '@': [path.resolve(__dirname, '../'), path.resolve(__dirname, '../')],
+            '@/components': path.join(__dirname, '../shared/components'),
         }
 
         /**

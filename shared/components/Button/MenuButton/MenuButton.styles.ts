@@ -27,6 +27,9 @@ export const useMenuButtonStyles = makeStyles((theme: Theme) =>
                 },
             },
         },
+        icon: {
+            objectFit: 'contain',
+        },
     })
 )
 

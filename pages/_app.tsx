@@ -5,7 +5,6 @@ import theme from '../lib/theme'
 import React, { useEffect } from 'react'
 import Footer from '@/components/Footer/Footer'
 import { Box } from '@mui/material'
-import NavBar from '@/components/NavBar/NavBar'
 
 declare module '@mui/styles/defaultTheme' {
     // eslint-disable-next-line @typescript-eslint/no-empty-interface
@@ -39,7 +38,6 @@ const Wrapper: React.FunctionComponent = ({ children }) => {
             height="100%"
             justifyContent="space-between"
         >
-            <NavBar />
             <Box paddingBottom={5}>{children}</Box>
             <Footer />
         </Box>

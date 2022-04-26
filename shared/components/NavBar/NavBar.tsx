@@ -4,11 +4,20 @@ import Image from 'next/image'
 import MenuButton from '../Button/MenuButton/MenuButton'
 import SearchBar from '../Input/SearchBar/SearchBar'
 import useStyles from './NavBar.styles'
-import { useGetCategories } from '@/shared/requests'
+import { useState } from 'react'
+import SideBar from '../SideBar/SideBar'
+import { Categoria } from '@/shared/Interfaces'
 
-const NavBar = () => {
+type NavBarProps = {
+    categories: Categoria[]
+}
+
+const NavBar = ({ categories }: NavBarProps) => {
     const styles = useStyles()
-    const { data: categories } = useGetCategories()
+    // const { data: categories } = useGetCategories()
+    const [sidebarOpen, setSidebarOpen] = useState(true)
+    const closeSidebar = () => setSidebarOpen(false)
+    const openSidebar = () => setSidebarOpen(true)
 
     return (
         <Box className={styles.container}>
@@ -24,13 +33,14 @@ const NavBar = () => {
                 <MenuButton
                     label="Opciones"
                     options={
-                        categories?.families.map((category) => ({
+                        categories?.map((category) => ({
                             label: category.description,
                             icon: category.icon_url,
                         })) || []
                     }
                 />
             </Box>
+            <SideBar open={sidebarOpen} onOpen={openSidebar} onClose={closeSidebar} categories={categories || []} />
         </Box>
     )
 }

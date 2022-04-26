@@ -75,7 +75,8 @@ const MenuButton = ({ label, options, ...props }: MenuButtonProps & Omit<MenuPro
                                         variant="square"
                                         alt={label}
                                         src={icon}
-                                        sx={{ width: 25, height: 25, marginRight: 1, objectFit: 'contain' }}
+                                        sx={{ width: 25, height: 25, marginRight: 1 }}
+                                        imgProps={{ className: styles.icon }}
                                     />
                                 )}
                                 {label}
