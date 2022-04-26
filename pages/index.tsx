@@ -10,6 +10,7 @@ const Home = ({ categories }: HomeProps) => {
     return (
         <>
             <NavBar categories={categories || []} />
+            FoucLogo
         </>
     )
 }
