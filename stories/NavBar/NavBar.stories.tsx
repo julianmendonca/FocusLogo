@@ -8,7 +8,7 @@ export default {
     argTypes: {},
 } as ComponentMeta<typeof NavBar>
 
-const Template: ComponentStory<typeof NavBar> = () => <NavBar />
+const Template: ComponentStory<typeof NavBar> = () => <NavBar categories={[]} />
 
 export const Primary = Template.bind({})
 Primary.args = {}
