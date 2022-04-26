@@ -33,12 +33,10 @@ const NavBar = ({ categories }: NavBarProps) => {
                 <MenuButton
                     label="Opciones"
                     options={
-                        (typeof categories?.map === 'function' &&
-                            categories?.map((category) => ({
-                                label: category.description,
-                                icon: category.icon_url,
-                            }))) ||
-                        []
+                        categories?.map((category) => ({
+                            label: category.description,
+                            icon: category.icon_url,
+                        })) || []
                     }
                 />
             </Box>

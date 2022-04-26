@@ -10,7 +10,7 @@ const Home = ({ categories }: HomeProps) => {
     return (
         <>
             <NavBar categories={categories || []} />
-            FoucLogo
+            FocusLogo
         </>
     )
 }
@@ -18,12 +18,19 @@ const Home = ({ categories }: HomeProps) => {
 export default Home
 
 export async function getStaticProps() {
-    // `getStaticProps` is executed on the server side.
-    const categories = (await fetch(environment.domain + '/api/categorias').then((res) => res.json())) as Categoria[]
+    try {
+        const categories = (await fetch(environment.domain + '/api/categorias').then((res) =>
+            res.json()
+        )) as Categoria[]
 
-    return {
-        props: {
-            categories,
-        },
+        return {
+            props: {
+                categories,
+            },
+        }
+    } catch {
+        return {
+            props: { categories: [] },
+        }
     }
 }
