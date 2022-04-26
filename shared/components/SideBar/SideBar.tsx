@@ -37,7 +37,7 @@ const SideBar = ({ categories, ...props }: SideBarProps & SwipeableDrawerProps) 
                     </AccordionSummary>
                     <AccordionDetails>
                         <List>
-                            {categories.map((category) => (
+                            {categories?.map((category) => (
                                 <ListItem button key={category.id}>
                                     <ListItemIcon>
                                         <Avatar
