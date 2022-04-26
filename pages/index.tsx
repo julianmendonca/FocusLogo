@@ -17,7 +17,9 @@ export default Home
 
 export async function getStaticProps() {
     // `getStaticProps` is executed on the server side.
-    const categories = (await fetch(environment.domain + '/api/categorias').then((res) => res.json())) as Categoria[]
+    const categories = (await fetch('http://localhost:3000' + '/api/categorias').then((res) =>
+        res.json()
+    )) as Categoria[]
 
     return {
         props: {
