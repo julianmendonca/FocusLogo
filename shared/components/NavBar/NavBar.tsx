@@ -14,7 +14,6 @@ type NavBarProps = {
 
 const NavBar = ({ categories }: NavBarProps) => {
     const styles = useStyles()
-    // const { data: categories } = useGetCategories()
     const [sidebarOpen, setSidebarOpen] = useState(true)
     const closeSidebar = () => setSidebarOpen(false)
     const openSidebar = () => setSidebarOpen(true)
