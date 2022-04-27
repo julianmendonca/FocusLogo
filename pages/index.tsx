@@ -11,6 +11,7 @@ const Home = ({ categories }: HomeProps) => {
         <>
             <NavBar categories={categories || []} />
             FocusLogo
+            {environment.domain}
         </>
     )
 }
