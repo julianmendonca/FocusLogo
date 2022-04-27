@@ -5,7 +5,7 @@ import MenuItem, { MenuItemProps } from '@mui/material/MenuItem'
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown'
 import useStyles from './MenuButton.styles'
 import clsx from 'clsx'
-import { Avatar, Grid } from '@mui/material'
+import { Avatar, Box, BoxProps, Grid } from '@mui/material'
 
 interface MenuButtonProps {
     label: string
@@ -13,9 +13,10 @@ interface MenuButtonProps {
         icon?: string
         label?: string
     } & MenuItemProps)[]
+    containerProps?: BoxProps
 }
 
-const MenuButton = ({ label, options, ...props }: MenuButtonProps & Omit<MenuProps, 'open'>) => {
+const MenuButton = ({ label, options, containerProps, ...props }: MenuButtonProps & Omit<MenuProps, 'open'>) => {
     const styles = useStyles()
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null)
     const open = Boolean(anchorEl)
@@ -27,7 +28,7 @@ const MenuButton = ({ label, options, ...props }: MenuButtonProps & Omit<MenuPro
     }
 
     return (
-        <div>
+        <Box {...containerProps}>
             <Button
                 id="demo-customized-button"
                 aria-controls={open ? 'demo-customized-menu' : undefined}
@@ -85,7 +86,7 @@ const MenuButton = ({ label, options, ...props }: MenuButtonProps & Omit<MenuPro
                     ))}
                 </Grid>
             </Menu>
-        </div>
+        </Box>
     )
 }
 

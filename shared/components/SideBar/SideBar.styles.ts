@@ -5,6 +5,9 @@ export const useSideBarStyles = makeStyles(() =>
         listIcon: {
             marginRight: '0.5rem',
         },
+        categories: {
+            paddingRight: '100px',
+        },
     })
 )
 

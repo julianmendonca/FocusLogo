@@ -7,14 +7,15 @@ import useStyles from './NavBar.styles'
 import { useState } from 'react'
 import SideBar from '../SideBar/SideBar'
 import { Categoria } from '@/shared/Interfaces'
-
+import { Button } from '@mui/material'
+import MenuIcon from '@mui/icons-material/Menu'
 type NavBarProps = {
     categories: Categoria[]
 }
 
 const NavBar = ({ categories }: NavBarProps) => {
     const styles = useStyles()
-    const [sidebarOpen, setSidebarOpen] = useState(true)
+    const [sidebarOpen, setSidebarOpen] = useState(false)
     const closeSidebar = () => setSidebarOpen(false)
     const openSidebar = () => setSidebarOpen(true)
 
@@ -30,6 +31,7 @@ const NavBar = ({ categories }: NavBarProps) => {
             </Box>
             <Box className={styles.bottom}>
                 <MenuButton
+                    containerProps={{ className: styles.desktopMenu }}
                     label="Opciones"
                     options={
                         categories?.map((category) => ({
@@ -38,6 +40,9 @@ const NavBar = ({ categories }: NavBarProps) => {
                         })) || []
                     }
                 />
+                <Button onClick={openSidebar} startIcon={<MenuIcon />} className={styles.mobileIcon}>
+                    Menu
+                </Button>
             </Box>
             <SideBar open={sidebarOpen} onOpen={openSidebar} onClose={closeSidebar} categories={categories || []} />
         </Box>
