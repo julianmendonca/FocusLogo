@@ -22,7 +22,9 @@ export default Home
 
 export async function getStaticProps() {
     try {
-        const categories = (await fetch('/api/categorias').then((res) => res.json())) as Categoria[]
+        const categories = (await fetch(environment.domain + '/api/categorias').then((res) =>
+            res.json()
+        )) as Categoria[]
 
         return {
             props: {
