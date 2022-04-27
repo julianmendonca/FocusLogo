@@ -4,13 +4,16 @@ import { environment } from '@/shared/constants'
 
 type HomeProps = {
     categories: Categoria[]
+    error?: string
 }
 
-const Home = ({ categories }: HomeProps) => {
+const Home = ({ categories, error }: HomeProps) => {
     return (
         <>
             <NavBar categories={categories || []} />
             FocusLogo
+            {environment.domain}
+            {error}
         </>
     )
 }
@@ -28,9 +31,10 @@ export async function getStaticProps() {
                 categories,
             },
         }
-    } catch {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    } catch (e: any) {
         return {
-            props: { categories: [] },
+            props: { categories: [], error: e.message },
         }
     }
 }
