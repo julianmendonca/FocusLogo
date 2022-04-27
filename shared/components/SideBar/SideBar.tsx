@@ -1,44 +1,51 @@
 import {
-    Accordion,
-    AccordionSummary,
     Avatar,
     Box,
+    Collapse,
     List,
-    ListItem,
+    ListItemButton,
     ListItemIcon,
     ListItemText,
     SwipeableDrawer,
     SwipeableDrawerProps,
 } from '@mui/material'
-import AccordionDetails from '@mui/material/AccordionDetails'
-import Typography from '@mui/material/Typography'
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 import { Categoria } from '@/shared/Interfaces'
 import ListIcon from '@mui/icons-material/List'
 import useStyles from './SideBar.styles'
+import HomeIcon from '@mui/icons-material/Home'
+import { ExpandLess, ExpandMore } from '@mui/icons-material'
+import { useState } from 'react'
 
 interface SideBarProps {
     categories: Categoria[]
 }
 const SideBar = ({ categories, ...props }: SideBarProps & SwipeableDrawerProps) => {
     const styles = useStyles()
+    const [sidebarOpen, setSidebarOpen] = useState(false)
+    const handleSidebar = () => setSidebarOpen((open) => !open)
 
     return (
         <SwipeableDrawer {...props}>
             <Box>
-                <Accordion>
-                    <AccordionSummary
-                        expandIcon={<ExpandMoreIcon />}
-                        aria-controls="panel1a-content"
-                        id="panel1a-header"
-                    >
-                        <ListIcon className={styles.listIcon} />
-                        <Typography>Categorias </Typography>
-                    </AccordionSummary>
-                    <AccordionDetails>
-                        <List>
+                <List>
+                    <ListItemButton>
+                        <ListItemIcon>
+                            <HomeIcon />
+                        </ListItemIcon>
+                        <ListItemText primary="Inicio" />
+                    </ListItemButton>
+                    <ListItemButton onClick={handleSidebar}>
+                        <ListItemIcon>
+                            <ListIcon />
+                        </ListItemIcon>
+                        <ListItemText primary="Categorias" className={styles.categories} />
+                        {sidebarOpen ? <ExpandLess /> : <ExpandMore />}
+                    </ListItemButton>
+
+                    <Collapse in={sidebarOpen} timeout="auto" unmountOnExit>
+                        <List component="div" disablePadding>
                             {categories?.map((category) => (
-                                <ListItem button key={category.id}>
+                                <ListItemButton key={category.id}>
                                     <ListItemIcon>
                                         <Avatar
                                             variant="square"
@@ -49,11 +56,11 @@ const SideBar = ({ categories, ...props }: SideBarProps & SwipeableDrawerProps) 
                                         />
                                     </ListItemIcon>
                                     <ListItemText primary={category.description} />
-                                </ListItem>
+                                </ListItemButton>
                             ))}
                         </List>
-                    </AccordionDetails>
-                </Accordion>
+                    </Collapse>
+                </List>
             </Box>
         </SwipeableDrawer>
     )

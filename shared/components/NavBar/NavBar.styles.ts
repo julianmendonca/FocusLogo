@@ -30,6 +30,16 @@ export const useNavBarStyles = makeStyles((theme: Theme) =>
                 paddingLeft: '5vw',
             },
         },
+        desktopMenu: {
+            [theme.breakpoints.down('sm')]: {
+                display: 'none',
+            },
+        },
+        mobileIcon: {
+            [theme.breakpoints.up('sm')]: {
+                display: 'none',
+            },
+        },
         searchBar: {
             marginLeft: '3vw',
         },
