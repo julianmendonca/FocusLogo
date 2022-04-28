@@ -38,6 +38,7 @@ const MenuButton = ({ label, options, containerProps, ...props }: MenuButtonProp
                 disableElevation
                 onClick={handleClick}
                 endIcon={<KeyboardArrowDownIcon />}
+                color="inherit"
             >
                 {label}
             </Button>
