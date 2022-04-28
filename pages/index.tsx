@@ -3,7 +3,8 @@ import NavBar from '@/components/NavBar/NavBar'
 import { environment } from '@/shared/constants'
 import { ProductCard } from '@/shared/components/Cards/ProductCard/ProductCard'
 import { Product } from '../shared/Interfaces'
-import { Grid } from '@mui/material'
+import { Box } from '@mui/material'
+import { BaseSlider } from '@/shared/components/BaseSlider/BaseSlider'
 
 type HomeProps = {
     categories: Categoria[]
@@ -15,20 +16,23 @@ const Home = ({ categories, products }: HomeProps) => {
     return (
         <>
             <NavBar categories={categories || []} />
-            FocusLogo
-            <Grid container columns={12} spacing={5}>
-                {products.map((product) => (
-                    <Grid item md={4} key={product.id}>
-                        <ProductCard
-                            name={product.name}
-                            image={product.images.find((i) => i.image_url)?.image_url || ''}
-                            price={+product.price}
-                            discountPrice={product.discount_price}
-                            description={product.description}
-                        />
-                    </Grid>
-                ))}
-            </Grid>
+            <Box width="80%" margin="0 auto">
+                <BaseSlider
+                    elements={products.map((product) => (
+                        <div>
+                            <ProductCard
+                                key={product.id}
+                                name={product.name}
+                                image={product.images.find((i) => i.image_url)?.image_url || ''}
+                                price={+product.price}
+                                discountPrice={product.discount_price}
+                                description={product.description}
+                                style={{ margin: 10 }}
+                            />
+                        </div>
+                    ))}
+                />
+            </Box>
         </>
     )
 }
