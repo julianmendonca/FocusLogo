@@ -8,9 +8,10 @@ export const useNavBarStyles = makeStyles((theme: Theme) =>
             top: 0,
             left: 0,
             width: '100%',
+            zIndex: 1,
         },
         top: {
-            backgroundColor: theme.palette.primary.light,
+            backgroundColor: theme.palette.primary.main,
             padding: '20px 0 20px 0',
             width: '100%',
             display: 'flex',
