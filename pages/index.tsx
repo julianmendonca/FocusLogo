@@ -3,6 +3,7 @@ import NavBar from '@/components/NavBar/NavBar'
 import { environment } from '@/shared/constants'
 import { ProductCard } from '@/shared/components/Cards/ProductCard/ProductCard'
 import { Product } from '../shared/Interfaces'
+import { Grid } from '@mui/material'
 
 type HomeProps = {
     categories: Categoria[]
@@ -10,17 +11,24 @@ type HomeProps = {
     error?: string
 }
 
-const Home = ({ categories }: HomeProps) => {
+const Home = ({ categories, products }: HomeProps) => {
     return (
         <>
             <NavBar categories={categories || []} />
             FocusLogo
-            <ProductCard
-                name="Spray Sanitizante 250 Ml con Gatillo"
-                image="https://zecat-user-images-prod.s3.amazonaws.com/generic_products/FOTOS%20CON%20SELLOS-06%2Cjpg-1589901085.jpg"
-                price={195.99}
-                discountPrice={0}
-            />
+            <Grid container columns={12} spacing={5}>
+                {products.map((product) => (
+                    <Grid item md={4} key={product.id}>
+                        <ProductCard
+                            name={product.name}
+                            image={product.images.find((i) => i.image_url)?.image_url || ''}
+                            price={+product.price}
+                            discountPrice={product.discount_price}
+                            description={product.description}
+                        />
+                    </Grid>
+                ))}
+            </Grid>
         </>
     )
 }
