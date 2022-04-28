@@ -51,7 +51,7 @@ const THEME: ThemeOptions = {
         },
     },
     palette: {
-        primary: { main: '#64b5f6', dark: '#2286c3', light: '#9be7ff' },
+        primary: { main: '#64b5f6', dark: '#2286c3', light: '#9be7ff', contrastText: '#fff' },
         secondary: { main: '#e1f5fe', dark: '#afc2cb', light: '#ffffff' },
         contrastThreshold: 3,
         tonalOffset: 0.5,
